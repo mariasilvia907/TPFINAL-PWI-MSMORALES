@@ -6,8 +6,40 @@
 
   <body>
     <%- include('./partials/header') %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+   
+    <section class="cards">
+      <div class="container-fluid">
+        <div class="row title-cards">
+          <div class="primerafranja-experiencias">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="color-amarillo"><%= slogan %></h2>
+                </div>
+                <div class="col-12">
+                  <h3 class="color-mandarina"><%= frase %></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row py-3 d-flex justify-content-center">        
+            <% JSONBody.forEach(experiences =>{ %>
+              <div class="card text-center m-4 rounded-3 col-12 col-sm-6 col-md-3 text-center">
+                <img src="<%= experiences.img %>" class="card-img-top rounded-3" alt="<%= experiences.name %>">
+                <div class="card-body">
+                  <h4 class="card-title"><%= experiences.name %></h4>
+                  <p class="card-text"><%= experiences.description %></p>
+                  <a href="<%= experiences.link %>" class="btn btn-primary bg-naranja color-azul ">Visitar</a>
+                </div>
+              </div>
+            <% }) %>  
+        </div>
+      </div>
+    </section>
+
+<!--     <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p> -->
     <%- include('./partials/footer') %>
   </body>
 </html>
